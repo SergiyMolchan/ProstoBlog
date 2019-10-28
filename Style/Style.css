@@ -1,0 +1,13 @@
+body{
+    scroll-behavior: smooth;
+    background: #343a40;
+    overflow: hidden;
+}
+
+main{
+    margin-top: 150px;
+}
+
+footer{
+    color: white;
+}
