@@ -13,7 +13,7 @@
         <div class="conteiner">
             <div class="row">
                 <div class="col-md-7 offset-md-1 col-10 offset-1">
-                    <form id="registration" action="./Auth/registration.php" method="POST">
+                    <form id="registration" action="#" id="regForm">
                         <div class="form-group text-white">
                             <label for="username">Username</label>
                             <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Username">
@@ -36,7 +36,11 @@
                             <input type="password" class="form-control" id="RepeatPassword" name="RepeatPassword" placeholder="Repeat password">
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Registration</button>
+                        <div id="formError" class="alert alert-danger" role="alert">
+                            
+                        </div>
+
+                        <button type="submit" id="reg_btn" class="btn btn-primary">Registration</button>
                     </form>
                 </div>
 
