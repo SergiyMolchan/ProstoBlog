@@ -1,3 +1,10 @@
+<?php 
+    if($_COOKIE['Auth'] == ''){
+        header('Location: /registration.php');
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <?php
