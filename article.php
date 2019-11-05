@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    $website_title = 'ProstoBlog sing in';
+    $website_title = 'ProstoBlog New article';
     include('./views/head.php');
 ?>
 <body class="text-center body">
@@ -14,35 +14,29 @@
             <div class="row">
             <div class="col-md-7 offset-md-1 col-10 offset-1">
 
-            <?php 
-                if($_COOKIE['Auth'] == ''):
-            ?>
-
-                    <form action="#" id="singIn">
-                        <h2 class="text-white">Sing in</h2>
+                    <form action="#">
+                        <h2 class="text-white">New article</h2>
                         <div class="form-group text-white">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Username">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your name with anyone else.</small>
+                            <label for="Title">Title</label>
+                            <input type="text" class="form-control" id="Title" name="Title" aria-describedby="emailHelp" placeholder="Title">
+                        </div>
+
+
+                        <div class="form-group text-white">
+                            <label for="Intro">Intro</label>
+                            <textarea class="form-control" id="Intro" rows="3" placeholder="Intro"></textarea>
                         </div>
 
                         <div class="form-group text-white">
-                            <label for="Password">Password</label>
-                            <input type="password" class="form-control" id="Password" name="Password" placeholder="Password">
+                            <label for="Text">Text</label>
+                            <textarea class="form-control" id="Text" rows="3" placeholder="Text"></textarea>
                         </div>
 
                         <div id="formError" class="alert alert-danger" role="alert"></div>
 
-                        <button type="submit" class="btn btn-primary" id="singInBtn">Sing In</button>
+                        <button type="submit" class="btn btn-primary" id="AddArticle">Add article</button>
                     </form>
-            <?php 
-                else:
-            ?>
-                <h2><?=$_COOKIE['Auth']?></h2>
-                <button type="button" class="btn btn-outline-danger" id="LogoutBtn">Logout</button>
-            <?php
-                endif;
-            ?>
+       
                 </div>
 
                 <?php 

@@ -13,7 +13,8 @@
         <div class="conteiner">
             <div class="row">
                 <div class="col-md-7 offset-md-1 col-10 offset-1">
-                    <form id="registration" action="#" id="regForm">
+                    <form id="registration" action="#">
+                        <h2 class="text-white">Registration</h2>
                         <div class="form-group text-white">
                             <label for="username">Username</label>
                             <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Username">

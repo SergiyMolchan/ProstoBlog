@@ -9,10 +9,28 @@
         <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
+        <?php 
+          if($_COOKIE['Auth'] != ''):
+        ?>
+        <li class="nav-item active">
+          <a class="nav-link" href="../article.php">Add article<span class="sr-only">(current)</span></a>
+        </li>
+        <?php
+          endif;      
+        ?>
 
       </ul>
-      
-      <a class="btn btn-outline-success my-2 my-sm-0 mr-2" role="button" href="./SingIn.php">Sing in</a>
-      <a class="btn btn-outline-success my-2 my-sm-0" role="button" href="./registration.php">Registration</a>
+      <?php 
+        if($_COOKIE['Auth'] == ''):
+      ?>
+        <a class="btn btn-outline-success my-2 my-sm-0 mr-2" role="button" href="./SingIn.php">Sing in</a>
+        <a class="btn btn-outline-success my-2 my-sm-0" role="button" href="./registration.php">Registration</a>
+      <?php 
+        else:
+      ?>
+        <a class="btn btn-outline-success my-2 my-sm-0" role="button" href="./SingIn.php">User account</a>
+      <?php
+        endif;      
+      ?>
     </div>
   </nav>

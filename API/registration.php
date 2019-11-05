@@ -29,14 +29,9 @@
         echo($error);
         exit();
     }
-    $user = 'root';
-    $pass = '';
-    $db = 'prostoblog';
-    $host = '127.0.0.1:3306';
-    
-    $dsn = 'mysql:host=' . $host . ';dbname=' . $db;
-    $pdo = new PDO($dsn, $user, $pass);
-    
+
+    require_once('../MySql_connect.php');
+
     $sql = 'INSERT INTO users(username, email, password) VALUES(?, ?, ?)';
     $query = $pdo->prepare($sql);
     $query->execute([$username, $email, $password]);
