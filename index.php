@@ -12,7 +12,26 @@
     <main>
         <div class="conteiner">
             <div class="row">
-                <div class="col-md-8">asd</div>
+                <div class="col-md-7 offset-md-1 col-10 offset-1">
+                
+                <?php 
+                    require_once('./MySql_connect.php');
+
+                    $sql = 'SELECT * FROM `articles` ORDER BY `date` DESC';
+                    $query = $pdo->query($sql);
+                    while($row = $query->fetch(PDO::FETCH_OBJ)){
+                        echo '
+                        <div class="card-body  text-white mb-4">
+                            <h5 class="card-title">' . $row->Title . '</h5>
+                            <p class="card-text">'. $row->Intro .'</p>
+                            <footer class="blockquote-footer text-info">The author of the article <cite title="Source Title">'. $row->Author .'</cite></footer>
+                            <a href="#" class="btn mt-2 btn-primary">Read</a>
+                        </div>
+                      ';
+                    }
+                ?>
+
+                </div>
 
                 <?php 
                     include_once('./views/aside.php');
