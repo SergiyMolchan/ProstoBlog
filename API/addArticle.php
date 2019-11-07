@@ -1,14 +1,14 @@
 <?php  
     $Title = trim(filter_var($_POST['Title'], FILTER_SANITIZE_STRING));
     $Intro = trim(filter_var($_POST['Intro'], FILTER_SANITIZE_STRING));
-    $Text = trim(filter_var($_POST['Text'], FILTER_SANITIZE_STRING));
+    $Text = trim($_POST['Text']);
 
     $error = '';
 
     if(strlen($Title) <= 5)
         $error = 'Enter title more than 6 symbols. '; 
     if(strlen($Intro) <= 15)
-        $error = $error . 'Enter intro more than 6 symbols. ';
+        $error = $error . 'Enter intro more than 15 symbols. ';
     if(strlen($Text) <= 30)
         $error = $error . 'Enter text. ';
 

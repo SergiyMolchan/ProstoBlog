@@ -25,7 +25,7 @@
                             <h5 class="card-title">' . $row->Title . '</h5>
                             <p class="card-text">'. $row->Intro .'</p>
                             <footer class="blockquote-footer text-info">The author of the article <cite title="Source Title">'. $row->Author .'</cite></footer>
-                            <a href="#" class="btn mt-2 btn-primary">Read</a>
+                            <a href="/news.php?id=' . $row->id .'" class="btn mt-2 btn-primary">Read</a>
                         </div>
                       ';
                     }
