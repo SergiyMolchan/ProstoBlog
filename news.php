@@ -28,8 +28,53 @@
                         <footer class="blockquote-footer text-center text-info mb-2">The author of the article <cite title="Source Title"><?=$article->Author?></cite></footer>
                         <p class="text-center text-info">Publication date <?=date('d.m.Y H:i',$article->Date - 3600)?></p>
                     </div>
-                </div>
 
+                    <form class="mb-5" action="./news.php?id=<?=$_GET['id']?>" method="POST">
+                        <h2 class="text-white">New comment</h2>
+                        <div class="form-group text-white">
+                            <label for="name">Your name</label>
+                            <input value="<?=$_COOKIE['Auth']?>" type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="Your name">
+                        </div>
+
+                        <div class="form-group text-white">
+                            <label for="comment">Comment</label>
+                            <textarea class="form-control" name="comment" id="comment" rows="3" placeholder="Comment"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" id="AddComment">Add comment</button>
+                    </form>
+
+                    <?php 
+                        if($_POST['name'] != '' && $_POST['comment'] != ''){
+                            $name = trim(filter_var($_POST['name'], FILTER_SANITIZE_STRING));
+                            $comment = trim($_POST['comment']);
+
+                            $sql = 'INSERT INTO comments(name, comment, article_id) VALUES(?, ?, ?)';
+                            $query = $pdo->prepare($sql);
+                            $query->execute([$name, $comment, $_GET['id']]);
+                        }
+
+                        $sql = 'SELECT * FROM `comments` WHERE `article_id` = :id ORDER BY `id` DESC';
+                        $query = $pdo->prepare($sql);
+                        $query->execute(['id' => $_GET['id']]);
+                        $comments = $query->fetchAll(PDO::FETCH_OBJ);
+
+                        foreach($comments as $comment){
+                            echo '                           
+                            <div class="card text-center bg-transparent mt-2 mb-2">
+                                <div class="card-header">
+                                    '. $comment->name .'
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">'. $comment->comment .'</p>
+                                </div>
+                            </div>
+                            ';
+                        }
+                    ?>
+
+
+                </div>
                 <?php 
                     include_once('./views/aside.php');
                 ?>
